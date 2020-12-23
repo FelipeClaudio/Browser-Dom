@@ -1,0 +1,47 @@
+* {
+    border: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.passaro {
+    height: 35px;
+    position: absolute;
+    left: 100px;
+}
+
+.conteudo{
+    background-color: aqua;
+    height: 100vh;
+    width: 100vw;
+    color: black;
+}
+
+.obstaculo{
+    width: 50px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.fim{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    margin-top: 30vh;
+}
+
+.contador{
+    color: red;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    margin-top: 10vh;
+}
+
+div[wm-flappy]{
+    width: 100vw;
+    height: 90vh;
+}

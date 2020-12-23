@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritório' data-urgencia="5">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        const lista = document.querySelector('div ul[destino=escritório]')
+        console.log('childNodes: ', lista.childNodes);
+        console.log('destino: ', lista.destino); // Não acha o atributo personalizado
+        console.log('getAttribute: ', lista.getAttribute('destino'));
+        console.log('hasAttribute: ', lista.hasAttribute('destino'));
+        lista.setAttribute('destino', 'empresa')
+        console.log('getAttribute: ', lista.getAttribute('destino'));
+        lista.removeAttribute('destino')
+        console.log('getAttribute: ', lista.getAttribute('destino'));
+        console.log(lista.dataset.urgencia); // atributos iniciado com data- são entendidos automaticamente
+
+        const label = document.querySelector('label')
+        console.log(label.for); // não funciona por ser palavra reservada da linguagem
+        console.log(label.htmlFor); // funciona
+        console.log(label.getAttribute('for')); // funciona também
+    </script>
+</body>
+
+</html>

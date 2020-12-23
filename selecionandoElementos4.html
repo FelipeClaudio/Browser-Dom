@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #04</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <p>Início</p>
+    </div>
+    <div>
+        <ul>
+            <li>Pedro</li>
+            <li>Ana</li>
+            <li>Bia</li>
+        </ul>
+    </div>
+    <div>
+        <p>Fim</p>
+    </div>
+    <script>
+        // Não pode ser arrow function senão vai referenciar o elemento errado. Qual elemento?
+        function log() {
+            console.log(this)
+        }
+
+        HTMLCollection.prototype.log = log;
+        HTMLElement.prototype.log = log;
+        NodeList.prototype.log = log;
+        Node.prototype.log = log;
+
+        const lista = document.querySelector('div ul') //trás 7 elementos => trás os textos dos pula-linhas
+        lista.parentNode.log()
+        lista.childNodes.log()
+
+        const primeiro = lista.firstChild
+        primeiro.log() // traz o pula linha
+        primeiro.nextSibling.log() // trás a informação certa (Pedro)
+
+        const ultimo = lista.lastChild
+        ultimo.log() // traz o pula linha
+        ultimo.previousSibling.log() // trás a informação certa (Bia)
+
+        lista.children.log() // traz a lista de li como HTMLCollection
+        lista.firstElementChild.log() // traz a informação certa (Pedro)
+        lista.lastElementChild.log() // traz a informação certa (Bia)
+        lista.parentNode.previousElementSibling.log() // tra\ a div com início
+        lista.parentNode.nextElementSibling.log() // traz a div com fim
+
+        document.querySelectorAll('div ul li').log() // traz os Pedro, Ana e Bia
+    </script>
+</body>
+
+</html>

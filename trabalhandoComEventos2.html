@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>Elemento</div>
+    <script>
+        const elemento = document.querySelector('div')
+        elemento.style.position = 'absolute'
+
+        elemento.onmousemove = e => {
+            const item = e.target
+            item.style.cursor = 'move'
+
+            item.style.top = `${(e.clientY - (item.clientHeight / 2))}px`
+            item.style.left = `${(e.clientX - (item.clientWidth / 2))}px`
+        }
+    </script>
+</body>

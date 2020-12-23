@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <script>
+        const body = document.querySelector('body')
+
+        const div1 = document.createElement('div')
+        div1.classList.add('destaque')
+        div1.innerHTML = "Primeiro"
+
+        body.appendChild(div1)
+
+        const div2 = document.createElement('div')
+        div2.setAttribute('wm-atributo', 'valor')
+        div2.innerHTML = "Segundo"
+        body.appendChild(div2)
+
+        const div3 = div2.cloneNode(true) // true faz clonagem profunda
+        body.appendChild(div3)
+        // body.removeChild(div3)WW
+
+        const texto = document.createTextNode('Antes') // poderia ser criado com o createElment
+        
+        const p = document.createElement('p')
+        p.innerHTML = "Quarto"
+        const div4 = document.createElement('div')
+        div4.appendChild(p)
+        body.appendChild(div4)
+        div4.insertBefore(texto, div4.childNodes[0]) // mesmo já tendo dado o append, a mudança altera o elmento renderizado
+        
+    </script>
+</body>
+
+</html>

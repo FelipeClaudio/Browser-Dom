@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <!-- Opção 1 - setar hardcoded a função que vai lidar com o evento -->
+        <!-- Precisa do argumento event, senão não funciona -->
+        <a onclick=Espera5s(event) href="https://google.com.br">Google</a>
+        
+        <!-- Opção 2 - buscar pela tag e setar a função -->
+        <!-- <a href="https://google.com.br">Google</a> -->
+
+        <!-- <a espera href="https://google.com.br">Google</a> -->
+    </div>
+    <script>
+        function Espera5s(e){
+            e.preventDefault()
+
+            console.log("Espera 5s");
+            setTimeout( () => {
+                const link = e.target
+                window.location.href = link.href
+            }, 5000)
+        }
+
+        // // Opção 2 - buscar pela tag e setar a função
+        // const elemento = document.querySelector('a')
+        // elemento.onclick = Espera5s
+
+        // // Opção 3 - buscar por uma propriedade customizada
+        // const espera = document.querySelector('[espera]')
+        // espera.onclick = Espera5s
+    </script>
+</body>
